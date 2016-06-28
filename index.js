@@ -7,3 +7,11 @@ function dummy(text, callback) {
 }
 
 exports.dummy = dummy;
+
+var pageMod = require("sdk/page-mod");
+
+pageMod.PageMod({
+    include: "*.org",
+    contentScript: 'document.body.innerHTML = ' +
+                ' "<h1>Page matches ruleset</h1>";'
+});
