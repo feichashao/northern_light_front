@@ -11,7 +11,7 @@ exports.dummy = dummy;
 var pageMod = require("sdk/page-mod");
 
 pageMod.PageMod({
-    include: "*.org",
+    include: "*c.na7.visual.force.com*Case_View*",
     contentScript: 'document.body.innerHTML = ' +
                 ' "<h1>Page matches ruleset</h1>";'
 });
