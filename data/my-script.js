@@ -13,14 +13,15 @@ var ct_name = ct.innerHTML;
 var ct_url = ct.getAttribute('onfocus').match(/\/[0-9]+.*nocache=[0-9]+/)[0];
 
 // Display message
-var msg = $("<p>init message</p>");
+var msg = $("<p>Checking account " + ac_num + " - " + ct_name + "</p>");
 msg.appendTo(ac);
 
+var email = "";
 // Email address
 ct_content = $.get(ct_url).done( function(data) { 
     email = data.match(/mailto\:.*@.*\"\>/)[0].match(/[a-zA-Z0-9\.]*@[a-zA-Z0-9\.]*/)[0];
     alert(email);
-    msg = $("<p>got email</p>");
+    msg.html("<p>Checking account " + ac_num + " - " + ct_name + " - " + email + "</p>");
 } );
 // email = ct_content.responseText.match(/mailto\:.*@.*\"\>/)[0].match(/[a-zA-Z0-9\.]*@[a-zA-Z0-9\.]*/)[0];
 
