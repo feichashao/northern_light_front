@@ -12,5 +12,5 @@ var pageMod = require("sdk/page-mod");
 
 pageMod.PageMod({
     include: /.*c\.na7\.visual\.force\.com\/apex\/Case_View.*/,
-    contentScriptFile: self.data.url("my-script.js")
+    contentScriptFile: [self.data.url("jquery-3.0.0.js"), self.data.url("my-script.js")]
 });
