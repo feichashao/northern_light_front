@@ -29,6 +29,6 @@ ct_content = $.get(ct_url)
         check_valid();
     })
     .fail( function(data) {
-        msg.html("<p>Fail to fetch " + ct_name "\'s email.</p>");
+        msg.html("<p>Fail to fetch " + ct_name "s email.</p>");
     });
 
