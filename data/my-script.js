@@ -16,6 +16,10 @@ var ct_url = ct.getAttribute('onfocus').match(/\/[0-9]+.*nocache=[0-9]+/)[0];
 var msg = $("<p>Checking account " + ac_num + " - " + ct_name + "</p>");
 msg.appendTo(ac);
 
+var check_valid = function(){
+        msg.html("<p>here should be messages return from local server.</p>");
+    };
+
 var email = "";
 // Email address
 ct_content = $.get(ct_url)
@@ -25,9 +29,6 @@ ct_content = $.get(ct_url)
         check_valid();
     })
     .fail( function(data) {
-        msg.html("<p>Fail to fetch " + ct_name "'s email.</p>");
+        msg.html("<p>Fail to fetch " + ct_name "\'s email.</p>");
     });
 
-var check_valid = function(){
-        msg.html("here should be messages return from local server.");
-    };
