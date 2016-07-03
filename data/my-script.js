@@ -14,7 +14,8 @@ ct_url = ct.getAttribute('onfocus').match(/\/[0-9]+.*nocache=[0-9]+/)[0];
 
 // Email address
 ct_content = $.get(ct_url);
-email = ct_content.responseText.match(/mailto\:.*@.*\"\>/)[0].match(/[a-zA-Z0-9\.]*@[a-zA-Z0-9\.]*/)[0]
+email = ct_content.responseText.match(/mailto\:.*@.*\"\>/)[0].match(/[a-zA-Z0-9\.]*@[a-zA-Z0-9\.]*/)[0];
 
 // Append message under account number
-msg = $("<p>some messages</p>")
+msg = $("<p>some messages</p>");
+msg.appendTo(ac);
