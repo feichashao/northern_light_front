@@ -9,8 +9,22 @@ function dummy(text, callback) {
 exports.dummy = dummy;
 
 var pageMod = require("sdk/page-mod");
+var Request = require("sdk/request").Request;
+
 
 pageMod.PageMod({
     include: /.*c\.na7\.visual\.force\.com\/apex\/Case_View.*/,
-    contentScriptFile: [self.data.url("jquery-3.0.0.js"), self.data.url("my-script.js")]
+//    include: "*.feichashao.com",
+    contentScriptFile: [self.data.url("jquery-3.0.0.js"), self.data.url("my-script.js")],
+    onAttach: function(worker){
+        worker.port.on("query_result", function(query_url){
+            Request({
+                url: query_url,
+                onComplete: function(response){
+                    worker.port.emit("handle_result", response.json);
+                    console.log(response.json);
+                }
+            }).get();
+        } );
+    }
 });
